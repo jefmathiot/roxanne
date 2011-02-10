@@ -18,7 +18,8 @@
 # To Public License, Version 2, as published by Sam Hocevar. See
 # http://sam.zoy.org/wtfpl/COPYING for more details.
 
-$:.unshift File.join(pwd,'lib')
+$:.unshift File.join(Dir.getwd,'lib')
+
 require 'date'
 require 'test/unit'
 require 'roxanne/base_configuration'
@@ -30,10 +31,10 @@ module Roxanne
       config = Roxanne::BaseConfiguration.new
       config.active_days=[0]
       config.timerange=0..11
-      assert_true config.will_activate(DateTime.new(2011, 1, 2, 0, 0, 0)), 'Should activate'
-      assert_true config.will_activate(DateTime.new(2011, 1, 2, 11, 59, 59)), 'Should activate'
-      assert_false config.will_activate(DateTime.new(2011, 1, 2, 12, 0, 0)), 'Should not activate'
-      assert_false config.will_activate(DateTime.new(2011, 1, 3, 0, 0, 0)), 'Should not activate'
+      assert_equal true, config.will_activate(DateTime.new(2011, 1, 2, 0, 0, 0)), 'Should activate'
+      assert_equal true, config.will_activate(DateTime.new(2011, 1, 2, 11, 59, 59)), 'Should activate'
+      assert_equal false, config.will_activate(DateTime.new(2011, 1, 2, 12, 0, 0)), 'Should not activate'
+      assert_equal false, config.will_activate(DateTime.new(2011, 1, 3, 0, 0, 0)), 'Should not activate'
     end
     
   end

@@ -18,7 +18,7 @@
 # To Public License, Version 2, as published by Sam Hocevar. See
 # http://sam.zoy.org/wtfpl/COPYING for more details.
 
-$:.unshift File.join(pwd,'lib')
+$:.unshift File.join(Dir.getwd,'lib')
 
 require 'test/unit'
 require 'roxanne/jenkins/jenkins_consumer'
