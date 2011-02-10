@@ -31,7 +31,7 @@ class RoxanneServer < DaemonSpawn::Base
   def start(args)
     sleeping = false
     puts "Roxanne starting in #{self.working_dir}"
-    @configuration = Roxanne::Configuration::YAMLConfiguration.new(self.working_dir, get_config)
+    @configuration = Roxanne::Configuration::YAMLConfiguration.new(self.working_dir, get_config(args))
     puts 'Starting loop'
     while true
       if @configuration.activated

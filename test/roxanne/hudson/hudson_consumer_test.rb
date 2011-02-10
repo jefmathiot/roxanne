@@ -21,7 +21,7 @@
 $:.unshift File.join(pwd,'lib')
 
 require 'test/unit'
-require 'roxanne/Jenkins/jenkins_consumer'
+require 'roxanne/jenkins/jenkins_consumer'
 
 class JenkinsConsumerTest < Test::Unit::TestCase
 

@@ -42,6 +42,9 @@ module Roxanne
           @consumers << consumer
           puts "Added consumer \"#{key}\" (#{klass})"
         }
+        @timerange = yaml['roxanne']['activation']['timerange'] unless yaml['roxanne']['activation']['timerange'].nil?
+        @active_days = yaml['roxanne']['activation']['days'] unless yaml['roxanne']['activation']['days'].nil?
+        puts @active_days.length
         @publisher = resolve_class(yaml['roxanne']['publisher']['class']).new
         copy_properties(@publisher, yaml['roxanne']['publisher'])
         puts "Configuration ready, #{@consumers.length} consumers added to the queue."

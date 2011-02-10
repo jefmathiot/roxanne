@@ -20,7 +20,7 @@
 
 roxanne:
   activation:
-    days: [1 2 3 4 5]
+    days: [1, 2, 3, 4, 5]
     # Active from ~ 08:00 to 19:59
     timerange: !ruby/range 8..19
   consumers:
