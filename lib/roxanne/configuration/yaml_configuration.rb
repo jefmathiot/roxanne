@@ -31,8 +31,7 @@ module Roxanne
       
       def initialize( working_dir, path = nil )
         super
-        path = path || 'config/config.yml'
-        path = File.join(working_dir, path)
+        path = path || File.join(working_dir, 'config/config.yml')
         puts "Parsing configuration file #{path}"
         yaml = YAML::load( File.open( path ) )
         yaml['roxanne']['consumers'].each { |key, value|

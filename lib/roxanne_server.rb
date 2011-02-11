@@ -59,7 +59,7 @@ class RoxanneServer < DaemonSpawn::Base
   end
 
   def get_config(args)
-    return args[0] || 'config.yml'
+    args[0]
   end
 
 end
