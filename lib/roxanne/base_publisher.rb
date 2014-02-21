@@ -21,8 +21,8 @@
 module Roxanne
   class BasePublisher
 
-    def publish( status )
-      puts "Do nothing method, status to publish : #{status.to_s}"
+    def publish( previous, status )
+      puts "Do nothing method, status changed from #{previous.to_s} to: #{status.to_s}"
     end
 
   end

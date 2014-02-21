@@ -33,6 +33,7 @@ class RoxanneServer < DaemonSpawn::Base
     puts "Roxanne starting in #{self.working_dir}"
     @configuration = Roxanne::Configuration::YAMLConfiguration.new(self.working_dir, get_config(args))
     puts 'Starting loop'
+    previous = nil
     while true
       if @configuration.activated
         sleeping = false
@@ -42,7 +43,10 @@ class RoxanneServer < DaemonSpawn::Base
             status = replace_status(consumer.refresh, status)
             break if status == :red
           }
-          @configuration.publisher.publish(status)
+          if previous != status
+            @configuration.publisher.publish(previous, status)
+            previous = status
+          end
         rescue Exception => e
           puts "An error has been raised : #{e.message}"
         end

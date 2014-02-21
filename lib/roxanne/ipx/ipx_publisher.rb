@@ -27,7 +27,8 @@ module Roxanne
       
       include Roxanne::HTTPSupport
 
-      def publish(status)
+      def publish(previous, status)
+        @previous = previous
         @status = status
         response = fetch_response
         case response
@@ -41,7 +42,17 @@ module Roxanne
       end
 
       def complete_path
-        @path.gsub(/\$\{1\}/, @status == :green ? '1' : '0').gsub(/\$\{2\}/, @status == :orange ? '1' : '0').gsub(/\$\{3\}/, @status == :red ? '1' : '0')
+        if @status == :red
+          color_path(0, 0, 1)
+	elsif @previous == :red && @status == :orange
+          color_path(0, 1, 0)
+        else
+          color_path(1, 0, 0)
+        end 
+      end
+
+      def color_path(g, o, r)
+        @path.gsub(/\$\{1\}/, g.to_s).gsub(/\$\{2\}/, o.to_s).gsub(/\$\{3\}/, r.to_s)
       end
 
     end
