@@ -2,15 +2,15 @@
 
 case "$1" in
   start)
-        su roxanne -c "bash /home/roxanne/roxanne/roxanne.sh start" ; exit	
+        su roxanne -c "bash /var/lib/roxanne/roxanne/service/roxanne.sh start" ; exit	
 	;;
   stop)
-	su roxanne -c "bash /home/roxanne/roxanne/roxanne.sh stop" ; exit
+	su roxanne -c "bash /var/lib/roxanne/roxanne/service/roxanne.sh stop" ; exit
 	;;
   status)
         ;;
   restart|force-reload)
-	su roxanne -c "bash /home/roxanne/roxanne/roxanne.sh restart" ; exit
+	su roxanne -c "bash /var/lib/roxanne/roxanne/service/roxanne.sh restart" ; exit
 	;;
   *)
 	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
