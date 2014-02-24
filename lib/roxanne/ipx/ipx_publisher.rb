@@ -28,6 +28,7 @@ module Roxanne
       include Roxanne::HTTPSupport
 
       def publish(previous, status)
+	puts "Previous #{previous}, new #{status}"
         @previous = previous
         @status = status
         response = fetch_response
@@ -42,7 +43,9 @@ module Roxanne
       end
 
       def complete_path
-        if @status == :red
+        if @status.nil?
+	  color_path(0, 0, 0)
+        elsif @status == :red
           color_path(0, 0, 1)
 	elsif @previous == :red && @status == :orange
           color_path(0, 1, 0)

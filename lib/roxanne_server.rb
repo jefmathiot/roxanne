@@ -51,7 +51,7 @@ class RoxanneServer < DaemonSpawn::Base
           puts "An error has been raised : #{e.message}"
         end
       else
-        @configuration.publisher.publish(nil) if !sleeping
+        @configuration.publisher.publish(nil, nil) if !sleeping
         sleeping = true
       end
       sleep 30
@@ -59,7 +59,7 @@ class RoxanneServer < DaemonSpawn::Base
   end
 
   def stop
-    @configuration.publisher.publish(nil)
+    @configuration.publisher.publish(nil, nil)
   end
 
   def get_config(args)
