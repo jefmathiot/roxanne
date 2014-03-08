@@ -1,0 +1,1 @@
+require 'roxanne/jenkins/consumer'
