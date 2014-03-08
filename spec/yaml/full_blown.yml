@@ -1,0 +1,12 @@
+roxanne:
+  activation:
+    days: !ruby/range 1..3
+    # Active from ~ 08:00 to 19:59
+    timerange: !ruby/range 9..18
+  consumers:
+    consumer_id:
+      class: "Roxanne::Test::Consumer"
+      consumer_opt: "some-value"
+  publisher:
+    class: "Roxanne::Test::Publisher"
+    publisher_opt: "another-value"
