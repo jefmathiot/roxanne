@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'json'
   spec.add_dependency 'daemon-spawn'
   spec.add_dependency 'activesupport', '>= 3.0.0'
+  spec.add_dependency 'taopaipai', '~> 0.1.1'
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
