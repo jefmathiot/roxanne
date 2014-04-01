@@ -1,16 +1,10 @@
-$:.unshift File.join(File.dirname(__FILE__),'..','lib')
-
 require 'daemon_spawn'
 
 module Roxanne
   class Server < DaemonSpawn::Base
 
-    def initialize(configuration, opts={})
-      super(opts)
-      @configuration = configuration
-    end
-
     def start(args)
+      @configuration = Configuration::YAML.new(args.first || 'config.yml')
       puts "Roxanne starting in #{self.working_dir}"
       @controller = Loop.new(@configuration)
       loop do
@@ -29,9 +23,3 @@ module Roxanne
 
   end
 end
-
-#RoxanneServer.spawn!(
-#  :log_file => File.join(File.dirname(__FILE__),'..','roxanne.log'),
-#  :pid_file => File.join(File.dirname(__FILE__),'..','roxanne.pid'),
-#  :sync_log => true,
-#  :working_dir =>  File.join(File.dirname(__FILE__),'..'))
