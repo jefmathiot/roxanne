@@ -24,13 +24,20 @@ module Roxanne
       end
 
       def build_consumers(hash)
-        (hash||{}).each do |id, properties|
-          @consumers << properties.delete(:class).constantize.new(properties)
+        (hash||{}).each do |id, hash|
+          @consumers << assign_properties( hash.delete(:class).constantize.new, hash )
         end
       end
 
       def build_publisher(hash)
-          @publisher = hash.delete(:class).constantize.new(hash)
+          @publisher = assign_properties( hash.delete(:class).constantize.new, hash)
+      end
+
+      def assign_properties(object, hash)
+        hash.each do |prop, value|
+          object.send "#{prop}=", value
+        end
+        object
       end
       
     end

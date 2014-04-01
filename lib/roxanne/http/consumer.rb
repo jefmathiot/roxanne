@@ -2,11 +2,11 @@ require 'roxanne/http_support'
 
 module Roxanne
   module HTTP
-    class HTTPConsumer
+    class Consumer
 
       include Roxanne::HTTPSupport
 
-      def refresh
+      def pull
         response = fetch_response
         case response
         when Net::HTTPSuccess

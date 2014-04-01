@@ -4,9 +4,8 @@ module Roxanne
   class Server < DaemonSpawn::Base
 
     def start(args)
-      @configuration = Configuration::YAML.new(args.first || 'config.yml')
       puts "Roxanne starting in #{self.working_dir}"
-      @controller = Loop.new(@configuration)
+      @controller = Loop.new(config(args))
       loop do
         @controller.cycle
         sleep 5
@@ -17,8 +16,8 @@ module Roxanne
       @controller.reset
     end
 
-    def get_config(args)
-      args.first
+    def config(args)
+      @config ||= Configuration::YAML.new(args.first || 'config/config.yml')
     end
 
   end

@@ -1,20 +1,6 @@
 roxanne:
-  activation:
-    days: [1, 2, 3, 4, 5]
-    # Active from ~ 08:00 to 19:59
-    timerange: !ruby/range 8..19
   consumers:
-    jenkins:
-      class: "Roxanne::Jenkins::JenkinsConsumer"
-      host: "127.0.0.1"
-      use_ssl: false
-      port: 80
-      path: "/hudson/api/json"
+    test:
+      class: "Roxanne::Test::Consumer"
   publisher:
-    class: "Roxanne::IPX::IPXPublisher"
-    host: "192.168.0.10"
-    # username: ""
-    # password: ""
-    use_ssl: false
-    port: 80
-    path: "/preset.htm?led1=${1}&led2=${2}&led3=${3}&led4=0&led5=0&led6=0&led7=0&led8=0"
+    class: "Roxanne::Test::Publisher"

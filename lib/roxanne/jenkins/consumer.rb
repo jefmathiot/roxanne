@@ -1,9 +1,9 @@
-require 'roxanne/http/http_consumer'
+require 'roxanne/http/consumer'
 require 'json'
 
 module Roxanne
   module Jenkins
-    class Consumer < Roxanne::HTTP::HTTPConsumer
+    class Consumer < Roxanne::HTTP::Consumer
       def handle_response(body)
         json = JSON.parse(body)
         status = :green

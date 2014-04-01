@@ -20,36 +20,28 @@ describe Roxanne::Configuration::YAML do
     end
   end
 
-  module Roxanne::Test
+  module Roxanne::Spec
     class Consumer
-      attr_reader :opt
-
-      def initialize(opts)
-        @opt = opts[:consumer_opt]
-      end
+      attr_accessor :consumer_opt
     end
 
     class Publisher
-      attr_reader :opt
-
-      def initialize(opts)
-        @opt = opts[:publisher_opt]
-      end
+      attr_accessor :publisher_opt
     end
   end
 
   it 'create consumers' do
     subject.new(spec_file('defaults')).tap do |config|
       config.consumers.size.must_equal 1
-      config.consumers.first.must_be_instance_of Roxanne::Test::Consumer
-      config.consumers.first.opt.must_equal "some-value"
+      config.consumers.first.must_be_instance_of Roxanne::Spec::Consumer
+      config.consumers.first.consumer_opt.must_equal "some-value"
     end
   end
 
   it 'create publisher' do
     subject.new(spec_file('defaults')).tap do |config|
-      config.publisher.must_be_instance_of Roxanne::Test::Publisher
-      config.publisher.opt.must_equal "another-value"
+      config.publisher.must_be_instance_of Roxanne::Spec::Publisher
+      config.publisher.publisher_opt.must_equal "another-value"
     end
   end
 

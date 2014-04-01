@@ -1,8 +1,8 @@
 roxanne:
   consumers:
     consumer_id:
-      class: "Roxanne::Test::Consumer"
+      class: "Roxanne::Spec::Consumer"
       consumer_opt: "some-value"
   publisher:
-    class: "Roxanne::Test::Publisher"
+    class: "Roxanne::Spec::Publisher"
     publisher_opt: "another-value"
