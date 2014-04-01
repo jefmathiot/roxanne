@@ -1,6 +1,6 @@
 module Roxanne
-	module Test
-		class Publisher
+  module Test
+    class Publisher
       def disable
         puts "Publisher is now disabled"
       end
@@ -11,8 +11,8 @@ module Roxanne
 
       private
       def default(status)
-      	status.nil? ? 'none' : status
+        status.nil? ? 'none' : status
       end
-		end
-	end
+    end
+  end
 end
