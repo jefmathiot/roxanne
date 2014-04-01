@@ -12,7 +12,7 @@ module Roxanne
           if actual == :red
             status = :red
             break
-          elsif actual == :orange && [nil, :red].include?(@previous)
+          elsif actual == :orange && [nil, :orange, :red].include?(@previous)
             status = :orange
           elsif @previous != :orange
             status = :green
