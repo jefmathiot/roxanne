@@ -8,7 +8,7 @@ module Roxanne
         json = JSON.parse(body)
         status = :green
         json['jobs'].each { |job|
-          status  = replace_status(to_status(job['color']), status) if COLORS.keys.include?job['color']
+          status = replace_status(to_status(job['color']), status) if COLORS.keys.include?job['color']
         }
         status
       end

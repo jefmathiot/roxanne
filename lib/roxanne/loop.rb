@@ -14,7 +14,7 @@ module Roxanne
             break
           elsif actual == :orange && [nil, :red].include?(@previous)
             status = :orange
-          elsif status != :orange
+          elsif @previous != :orange
             status = :green
           end
         end
