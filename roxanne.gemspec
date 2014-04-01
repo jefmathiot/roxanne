@@ -6,11 +6,12 @@ require 'roxanne/version'
 Gem::Specification.new do |spec|
   spec.name          = "roxanne"
   spec.version       = Roxanne::VERSION
-  spec.authors       = ["Jef Mathiot"]
-  spec.email         = ["jeff.mathiot@gmail.com"]
+  spec.authors       = ["Jef Mathiot", "Patrice Izzo", "Fabrice Nourisson",
+    "Benjamin Severac", "Eric Hartmann"]
+  spec.email         = ["foss@servebox.com"]
   spec.description   = %q{TODO: Write a gem description}
   spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/servebox/roxanne"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

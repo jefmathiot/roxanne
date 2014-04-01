@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'lib/roxanne/roxanne'
+require 'roxanne'
 
 basedir = File.dirname(__FILE__)
 Roxanne::Server.spawn!(
