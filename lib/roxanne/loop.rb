@@ -12,13 +12,11 @@ module Roxanne
           if actual == :red
             status = :red
             break
-          elsif actual == :orange && [nil, :orange, :red].include?(@previous)
+          elsif actual == :orange && @previous != :green
             status = :orange
-          elsif @previous != :orange
-            status = :green
           end
         end
-        publish( nil, status )
+        publish( @previous, status )
         @previous = status
       else
         @config.publisher.disable

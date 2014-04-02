@@ -32,7 +32,7 @@ describe Roxanne::Loop do
       subject.new(@config).cycle
     end
 
-    it 'publishes red if one of the publisher answers red' do
+    it 'publishes red if one of the consumers answers red' do
       @config.consumers.first.expects(:pull).returns :red
       @publisher.expects(:push).with(nil, :red)
       subject.new(@config).cycle
@@ -44,10 +44,17 @@ describe Roxanne::Loop do
       end
     end
 
-    it 'publishes orange if none of the publisher answers red and one answers orange' do
+    it 'publishes orange if a consumer answers orange and the previous status wasnt green' do
+      loop = subject.new(@config)
+      # First cycle to turn it red
+      expects_pulls(:red)
+      @publisher.expects(:push).with(nil, :red)
+      loop.cycle
+
+      # Second cycle to orange
       expects_pulls(:green, :orange, :green)
-      @publisher.expects(:push).with(nil, :orange)
-      subject.new(@config).cycle
+      @publisher.expects(:push).with(:red, :orange)
+      loop.cycle
     end
 
     it 'publishes green if orange and previous state wasnt red' do
@@ -58,7 +65,7 @@ describe Roxanne::Loop do
       loop.cycle
 
       expects_pulls(:orange, :green, :green)
-      @publisher.expects(:push).with(nil, :green)
+      @publisher.expects(:push).with(:green, :green)
       loop.cycle
     end
 
