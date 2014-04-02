@@ -107,6 +107,15 @@ Use the `Roxanne::GPIO::Consumer`, available options:
 * **orange_pin**: the GPIO pin to turn on when status changes to orange
 * **red_pin**: the GPIO pin to turn on when status changes to red
 
+## Statuses
+
+Every 5 seconds, Roxanne will loop to check the status of the consumers:
+
+* if any of the consumers returns `red` the publisher receive `red`
+* if all of the consumers return `green` the publisher receive `green`
+* if the previous state **was not** `green` and one of the consumer returns `orange` the publisher
+  receive `orange`
+
 ## Contributing
 
 1. Fork it
