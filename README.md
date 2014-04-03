@@ -88,7 +88,7 @@ Other available commands are obviously `stop`, `status` and `restart`.
 
 #### Jenkins
 
-Use the `Roxanne::Jenkins::Consumer`, available options:
+Use the `Roxanne::Jenkins::Consumer` class. Available options:
 
 * **host**: the Jenkins host name or IP address
 * **port**: the TCP port the Jenkins service can be reached on
@@ -97,11 +97,17 @@ Use the `Roxanne::Jenkins::Consumer`, available options:
 * **password**: the password to use for HTTP Basic Auth
 * **disable_certificate_verification** : set to true if you use a self-signed SSL certificate
 
+#### Travis CI
+
+Use the `Roxanne::Travis::Consumer` class. Available options:
+
+* **organization_or_user**: the Github organization or user to pull build states from
+
 ### Available Publishers
 
 #### GPIO
 
-Use the `Roxanne::GPIO::Consumer`, available options:
+Use the `Roxanne::GPIO::Consumer` class. Available options:
 
 * **green_pin**: the GPIO pin to turn on when status changes to green
 * **orange_pin**: the GPIO pin to turn on when status changes to orange
