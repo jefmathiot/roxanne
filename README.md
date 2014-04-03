@@ -1,7 +1,7 @@
 # Roxanne
 
-Roxanne allows you to monitor Continuous Integration servers or other sources (server or
-applications monitoring) and to publish the results using a notifier.
+Roxanne allows you to aggregate the status of Continuous Integration jobs or other sources and to
+publish the results on a BigVisibleThing™ (traffic light, lava lamp, whatever).
 
 [![Build Status](https://travis-ci.org/servebox/roxanne.png)](https://travis-ci.org/servebox/roxanne)
 

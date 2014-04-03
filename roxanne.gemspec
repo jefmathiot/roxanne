@@ -9,8 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jef Mathiot", "Patrice Izzo", "Fabrice Nourisson",
     "Benjamin Severac", "Eric Hartmann"]
   spec.email         = ["foss@servebox.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Roxanne: publish your CI status to your device of choice}
+  spec.summary       = %q{Aggregate the status of Continuous Integration jobs or other sources and
+                       publish them}
   spec.homepage      = "http://github.com/servebox/roxanne"
   spec.license       = "MIT"
 
@@ -25,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'taopaipai', '~> 0.1.1'
   spec.add_dependency 'travis', '~> 1.6.8'
 
-  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest", "~> 5.0.7"
   spec.add_development_dependency "minitest-implicit-subject", "~> 1.4.0"
