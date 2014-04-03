@@ -3,7 +3,7 @@ require 'roxanne/http_support'
 module Roxanne
   module HTTP
     class Consumer
-
+      include Consumers::Priority
       include Roxanne::HTTPSupport
 
       def pull
