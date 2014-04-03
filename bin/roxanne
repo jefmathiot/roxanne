@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'roxanne'
+require 'fileutils'
 
 basedir = File.expand_path(File.join( File.dirname(__FILE__) , '..'))
+%w(log pids).each do |dir|
+  dir = File.join(basedir, dir)
+  FileUtils.mkdir_p dir unless File.directory?(dir)
+end
 Roxanne::Server.spawn!(
 	 log_file: File.join(basedir, 'log/roxanne.log'),
 	 pid_file: File.join(basedir, 'pids/roxanne.pid'),
